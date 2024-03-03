@@ -1,0 +1,58 @@
+# TERMINAL NAVIGATION
+alias aliases="less ~/.zsh_aliases"
+alias code-aliases="code ~/.zsh_aliases"
+alias code-prof="code ~/.zshrc"
+alias refresh="source ~/.zshrc"
+alias cd-work="cd ~/code/work"
+alias cd-per="cd ~/code/personal"
+alias his="history | grep"
+
+# GOLANG
+alias tst="gotestsum ./... -cover -race"
+
+#GIT/GITHUB
+alias branch="git rev-parse --abbrev-ref HEAD"
+alias gb="git branch"
+alias gp="git pull"
+alias gf="git fetch"
+alias gc="git checkout"
+alias gcb="git checkout -b"
+alias gcs="git checkout staging"
+alias gcbs="gp && gcb staging"
+alias gds="gd staging"
+alias grs="gcm && gds && gcbs" #remake staging
+alias gcm="git checkout master || git checkout main && gp"
+alias gs="git status"
+alias gst="git stash"
+alias gsp="git stash pop"
+alias ga="git add"
+alias gcomv="git commit"
+alias gcom="git commit -m"
+alias gcam="git commit --amend"
+alias yeet="git push"
+alias yeetf="git push -f"
+alias yeet-new="myvar=\$(branch) && git push --set-upstream origin \$myvar" # Push and set upstream
+alias gp-new="myvar=\$(branch) && git push --set-upstream origin \$myvar" # Push and set upstream
+alias gm="git merge" # $ git merge <NAME OF FEATURE BRANCH> -m "this is my message"
+alias gms="myvar=\$(branch) && git checkout staging && git pull && git merge \$myvar" # Merge to staging
+alias gmsp="myvar=\$(branch) && git checkout staging && git pull && git merge \$myvar && yeet" # Merge to staging and push
+alias gpmsp="git push & gmsp"
+alias gpnmsp="gp-new & gmsp"
+alias gmc="git merge --continue"
+alias gma="git merge --abort"
+alias greb="git rebase"
+alias gra="git rebase --abort"
+alias grc="git rebase --continue"
+alias gd="git branch -D" # Deletes Git branch locally
+alias gl="git log"
+alias gres="git reset --soft HEAD~1"
+alias gs-="git switch -"
+
+#DOCKER
+alias dcu="docker compose up"
+alias dcd="docker compose down"
+alias dcb="docker compose build --no-cache"
+alias dpgu="docker run --name postgres -p 5455:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -d postgres"
+alias dpgd="docker stop postgres"
+alias dpgr="docker rm postgres"
+alias dpg="dpgd && dpgr && dpgu"
